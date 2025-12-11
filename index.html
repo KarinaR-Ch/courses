@@ -4,9 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Courses App</title>
+
+    <!-- React CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- React Router -->
+    <script src="https://unpkg.com/react-router-dom@6/umd/react-router-dom.development.js"></script>
+
+    <!-- Babel (щоб читати JSX без збірки) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="./styles.css" />
   </head>
+
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- ГОЛОВНИЙ APP -->
+    <script type="text/babel" src="./App.js"></script>
+
+    <!-- COMPONENTS -->
+    <script type="text/babel" src="./components/HomePage.js"></script>
+    <script type="text/babel" src="./components/LoggedOut.js"></script>
+    <script type="text/babel" src="./components/LoginPage.js"></script>
+    <script type="text/babel" src="./components/LoggedInPage.js"></script>
+    <script type="text/babel" src="./components/RegistrationPage.js"></script>
+    <script type="text/babel" src="./components/CourseDetailsPage.js"></script>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
   </body>
 </html>
