@@ -1,0 +1,946 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courses App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  
+  /* ================= HOME PAGE STYLES ================= */
+  #page-home {
+    background: #f7f7f7;
+    color: #222;
+  }
+
+  #page-home .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+  }
+
+  #page-home .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  #page-home .header-left img {
+    width: 72px;
+  }
+
+  #page-home .header-right button {
+    padding: 8px 24px;
+    border: none;
+    background: #007baf;
+    color: white;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  #page-home .header-right button:hover {
+    background: #005b82;
+  }
+
+  #page-home .hero {
+    max-width: 1100px;
+    margin: 80px auto;
+    text-align: center;
+  }
+
+  #page-home .title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  #page-home .subtitle {
+    font-size: 19px;
+    color: #444;
+    line-height: 1.45;
+    max-width: 620px;
+    margin: 0 auto 36px;
+  }
+
+  #page-home .start-btn {
+    padding: 14px 48px;
+    font-size: 18px;
+    border: none;
+    background: #007baf;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  #page-home .start-btn:hover {
+    background: #005b82;
+  }
+
+  #page-home .features {
+    max-width: 1100px;
+    margin: 100px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+
+  #page-home .feature-card {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  #page-home .feature-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  #page-home .feature-card p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  #page-home .footer {
+    text-align: center;
+    padding: 35px 0;
+    font-size: 14px;
+    color: #666;
+  }
+
+  /* ================= ORIGINAL APP STYLES ================= */
+  body{background:#f5f5f5;}
+  .header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+    background:white;
+    border-bottom:1px solid #ddd;
+  }
+  .header-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:22px;
+    font-weight:600;
+  }
+  .header-left img{width:72px;}
+  .header-right button{
+    padding:8px 24px;
+    border:none;
+    background:#007baf;
+    color:white;
+    font-size:16px;
+    border-radius:4px;
+    cursor:pointer;
+  }
+  .header-right button:hover{background:#005b80;}
+
+  .wrapper{
+    max-width:1100px;
+    margin:30px auto;
+  }
+  .search-bar{
+    display:flex;
+    gap:12px;
+    margin-bottom:24px;
+  }
+  input{
+    flex:1;
+    padding:12px 14px;
+    border:1px solid #ccc;
+    border-radius:4px;
+  }
+  .btn{
+    padding:12px 26px;
+    background:#007baf;
+    color:white;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+  }
+  .btn:hover{background:#005b80;}
+
+  .course-card{
+    background:white;
+    border:1px solid #dcdcdc;
+    border-radius:8px;
+    padding:25px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+  }
+  .course-left{flex:2;}
+  .course-left h3{font-size:22px;margin-bottom:12px;}
+  .course-left p{color:#444;font-size:15px;line-height:1.4;}
+  .course-right{flex:1;display:flex;flex-direction:column;gap:8px;font-size:15px;}
+  .course-right button{margin-top:12px;align-self:start;}
+
+  /* Login page */
+  .login-container{
+    max-width:420px;
+    margin:80px auto;
+    background:white;
+    padding:40px;
+    border:1px solid #e0e0e0;
+    border-radius:6px;
+    text-align:center;
+  }
+  .login-container h2{
+    margin-bottom:25px;
+    font-size:28px;
+  }
+  .login-label{
+    text-align:left;
+    margin-bottom:6px;
+    font-size:14px;
+    font-weight:600;
+  }
+  .login-input{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    margin-bottom:18px;
+  }
+  .login-bottom{
+    margin-top:12px;
+    font-size:14px;
+  }
+  .hidden{display:none;}
+
+  /* CSS from document for Logged in Courses Page */
+  .courses {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .courses-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .courses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .course-card-doc {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .course-card-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .course-main-info {
+    flex: 2;
+  }
+  
+  .course-details {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .course-title {
+    margin-bottom: 10px;
+  }
+  
+  .authors-list {
+    display: inline-block;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .empty-course-list {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  .course-info {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .course-info-content {
+    display: flex;
+    gap: 40px;
+    margin: 20px 0;
+  }
+  
+  .detail-item {
+    margin-bottom: 15px;
+  }
+  
+  .search-bar-doc {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input.doc {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex: 1;
+  }
+
+  /* CSS from document for Course Details Page */
+  .course-details-page * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .course-details-page body {
+    background: #f5f5f5;
+  }
+
+  /* Header */
+  .course-details-page .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .course-details-page .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .course-details-page .header-left img {
+    width: 72px;
+  }
+
+  .course-details-page .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 16px;
+  }
+
+  .course-details-page .logout-btn {
+    padding: 8px 24px;
+    border: none;
+    background: #007baf;
+    color: white;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .course-details-page .logout-btn:hover {
+    background: #005b80;
+  }
+
+  /* Page container */
+  .course-details-page .wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+  }
+
+  .course-details-page .title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+
+  /* Content Panel */
+  .course-details-page .panel {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 35px;
+    display: flex;
+    gap: 40px;
+  }
+
+  .course-details-page .description-block {
+    flex: 2;
+  }
+
+  .course-details-page .description-block h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+
+  .course-details-page .description-block p {
+    font-size: 15px;
+    line-height: 1.45;
+    color: #444;
+  }
+
+  .course-details-page .info-block {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 15px;
+  }
+
+  .course-details-page .info-block div strong {
+    display: inline-block;
+    width: 80px;
+  }
+
+  .course-details-page .back-btn {
+    margin: 35px auto 0;
+    display: block;
+    width: 150px;
+    padding: 12px;
+    font-size: 15px;
+    border: none;
+    background: #007baf;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .course-details-page .back-btn:hover {
+    background: #005b80;
+  }
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= HOME PAGE ================= -->
+<div id="page-home">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png" alt="Logo">
+    <span>Courses</span>
+  </div>
+
+  <div class="header-right">
+    <button onclick="goToCourses()">Start Learning</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 class="title">Learn Programming Easily</h1>
+  <p class="subtitle">
+    Access curated courses, improve your skills, and build confidence in modern technologies.
+    Clear structure, practical examples, and learning without chaos.
+  </p>
+  <button class="start-btn" onclick="goToCourses()">Start Learning</button>
+</section>
+
+<section class="features">
+  <div class="feature-card">
+    <h3>Structured Courses</h3>
+    <p>
+      Clean layout with consistent format, so you can learn step by step and see real progress.
+    </p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Professional Materials</h3>
+    <p>
+      Content prepared by experts with real hands-on experience in international companies.
+    </p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Smart Course Management</h3>
+    <p>
+      Add, edit, and manage courses without spreadsheets and endless chats. Everything in one place.
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2025 Courses App. Improve yourself every day.
+</footer>
+</div>
+
+<!-- ================= LOGGED OUT PAGE ================= -->
+<div id="page-loggedout" class="hidden">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png">
+    <span>Courses</span>
+  </div>
+  <div class="header-right">
+    <button onclick="openLogin()">Login</button>
+  </div>
+</header>
+
+<section class="wrapper">
+  <div class="search-bar">
+    <input placeholder="Input text">
+    <button class="btn">Search</button>
+  </div>
+
+  <div class="course-card">
+    <div class="course-left">
+      <h3>Angular</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </div>
+    <div class="course-right">
+      <div><strong>Authors:</strong> Dave Haisenberg, Tony Ja</div>
+      <div><strong>Duration:</strong>2:30</div>
+      <div><strong>Created:</strong>20.03.2012</div>
+      <button class="btn show-course-btn" data-course="Angular">Show Course</button>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-left">
+      <h3>React</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </div>
+    <div class="course-right">
+      <div><strong>Authors:</strong> Dave Simonds, Valentina Lary</div>
+      <div><strong>Duration:</strong>1:00</div>
+      <div><strong>Created:</strong>14.08.2017</div>
+      <button class="btn show-course-btn" data-course="React">Show Course</button>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-left">
+      <h3>ASP .NET</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </div>
+    <div class="course-right">
+      <div><strong>Authors:</strong> Sam Smith, Tony Robbins</div>
+      <div><strong>Duration:</strong>3:30</div>
+      <div><strong>Created:</strong>01.06.2022</div>
+      <button class="btn show-course-btn" data-course="ASP .NET">Show Course</button>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ================= LOGIN PAGE ================= -->
+<div id="page-login" class="hidden">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png">
+    <span>Courses</span>
+  </div>
+</header>
+
+<div class="login-container">
+  <h2>Login</h2>
+
+  <div class="login-label">Email</div>
+  <input id="email" type="email" class="login-input" placeholder="Input text">
+
+  <div class="login-label">Password</div>
+  <input id="password" type="password" class="login-input" placeholder="Input text">
+
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px;">
+    <input type="checkbox" id="registrationCheckbox" onchange="toggleRegistrationButton()">
+    <label for="registrationCheckbox">Registration</label>
+  </div>
+
+  <button class="btn" id="loginButton" onclick="goToLoggedInFromLogin()">LOGIN</button>
+  <button class="btn hidden" id="registrationButton" onclick="openRegistration()">Registration</button>
+
+  <div class="login-bottom">
+    If you don't have an account you may<br>
+    <b onclick="openRegistration()" style="cursor:pointer;">Registration</b>
+  </div>
+</div>
+</div>
+
+<!-- ================= REGISTRATION PAGE ================= -->
+<div id="page-registration" class="hidden">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png">
+    <span>Courses</span>
+  </div>
+</header>
+
+<div class="login-container">
+  <h2>Registration</h2>
+
+  <div class="login-label">Name</div>
+  <input type="text" class="login-input" placeholder="Input text">
+
+  <div class="login-label">Email</div>
+  <input type="email" class="login-input" placeholder="Input text">
+
+  <div class="login-label">Password</div>
+  <input type="password" class="login-input" placeholder="Input text">
+
+  <button class="btn" onclick="register()">LOGIN</button>
+
+  <div class="login-bottom">
+    If you have an account you may <b onclick="openLogin()" style="cursor:pointer;">Login</b>
+  </div>
+</div>
+</div>
+
+<!-- ================= LOGGED IN PAGE ================= -->
+<div id="page-loggedin" class="hidden">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png">
+    <span>Courses</span>
+  </div>
+  <div class="header-right">
+    <span>Harry Potter</span>
+    <button onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<section class="courses">
+  <!-- Search bar -->
+  <div class="search-bar-doc">
+    <input type="text" placeholder="Input text" class="doc" />
+    <button class="btn">Search</button>
+    <button class="btn">Add new</button>
+  </div>
+  <!-- List of courses -->
+  <div class="courses-list" id="coursesContainer">
+    <!-- Course 1 -->
+    <div class="course-card-doc" id="course1">
+      <div class="course-card-content">
+        <div class="course-main-info">
+          <h2 class="course-title">Angular</h2>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since the
+            1500s...
+          </p>
+        </div>
+        <div class="course-details">
+          <div class="detail-item"><strong>Authors:</strong> <span class="authors-list">Dave Haisenberg, Tony Ja</span></div>
+          <div class="detail-item"><strong>Duration:</strong> 2:30 hours</div>
+          <div class="detail-item"><strong>Created:</strong> 20.03.2012</div>
+          <div class="detail-item">
+            <button class="btn show-course-btn" data-course="Angular">Show course</button>
+            <button class="btn">✏️</button>
+            <button class="btn delete-btn" onclick="deleteCourse('course1')">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Course 2 -->
+    <div class="course-card-doc" id="course2">
+      <div class="course-card-content">
+        <div class="course-main-info">
+          <h2 class="course-title">React</h2>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since the
+            1500s...
+          </p>
+        </div>
+        <div class="course-details">
+          <div class="detail-item"><strong>Authors:</strong> <span class="authors-list">Dave Simonds, Valentina Lary</span></div>
+          <div class="detail-item"><strong>Duration:</strong> 1:00 hours</div>
+          <div class="detail-item"><strong>Created:</strong> 14.08.2017</div>
+          <div class="detail-item">
+            <button class="btn show-course-btn" data-course="React">Show course</button>
+            <button class="btn">✏️</button>
+            <button class="btn delete-btn" onclick="deleteCourse('course2')">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Course 3 -->
+    <div class="course-card-doc" id="course3">
+      <div class="course-card-content">
+        <div class="course-main-info">
+          <h2 class="course-title">ASP .NET</h2>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since the
+            1500s...
+          </p>
+        </div>
+        <div class="course-details">
+          <div class="detail-item"><strong>Authors:</strong> <span class="authors-list">Sam Smith, Tony Robbins</span></div>
+          <div class="detail-item"><strong>Duration:</strong> 3:30 hours</div>
+          <div class="detail-item"><strong>Created:</strong> 01.06.2022</div>
+          <div class="detail-item">
+            <button class="btn show-course-btn" data-course="ASP .NET">Show course</button>
+            <button class="btn">✏️</button>
+            <button class="btn delete-btn" onclick="deleteCourse('course3')">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ================= COURSE DETAILS PAGE ================= -->
+<div id="page-course-details" class="hidden course-details-page">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png" alt="Logo">
+    <span>Courses</span>
+  </div>
+
+  <div class="header-right">
+    <span>Harry Potter</span>
+    <button class="logout-btn" onclick="logout()">LOGOUT</button>
+  </div>
+</header>
+
+<!-- CONTENT -->
+<div class="wrapper">
+  <h1 class="title" id="course-detail-title">JavaScript</h1>
+
+  <div class="panel">
+    <!-- LEFT -->
+    <div class="description-block">
+      <h3>Description:</h3>
+      <p id="course-detail-description">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+        Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="info-block">
+      <div><strong>ID:</strong> <span id="course-detail-id">231j3j-b34g5-b345m</span></div>
+      <div><strong>Duration:</strong> <span id="course-detail-duration">23:35 hours</span></div>
+      <div><strong>Created:</strong> <span id="course-detail-created">01.01.2023</span></div>
+      <div><strong>Authors:</strong> <span id="course-detail-authors">Anna Sidorenko, Valentina Larina</span></div>
+    </div>
+  </div>
+
+  <button class="back-btn" onclick="goBackFromCourseDetails()">BACK</button>
+</div>
+</div>
+
+<script>
+// Course data for details page
+const courseDetailsData = {
+  'Angular': {
+    title: 'Angular',
+    description: 'Angular is a platform for building mobile and desktop web applications. It is a complete rewrite from the same team that built AngularJS. Angular is a development platform for building mobile and desktop web applications using TypeScript/JavaScript and other languages.',
+    id: 'ang-231j3j-b34g5',
+    duration: '2:30 hours',
+    created: '20.03.2012',
+    authors: 'Dave Haisenberg, Tony Ja'
+  },
+  'React': {
+    title: 'React',
+    description: 'React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.',
+    id: 'react-231j3j-b34g5',
+    duration: '1:00 hours',
+    created: '14.08.2017',
+    authors: 'Dave Simonds, Valentina Lary'
+  },
+  'ASP .NET': {
+    title: 'ASP .NET',
+    description: 'ASP.NET is an open-source, server-side web-application framework designed for web development to produce dynamic web pages. It was developed by Microsoft to allow programmers to build dynamic web sites, applications and services.',
+    id: 'asp-231j3j-b34g5',
+    duration: '3:30 hours',
+    created: '01.06.2022',
+    authors: 'Sam Smith, Tony Robbins'
+  }
+};
+
+// Store the previous page to go back to
+let previousPage = 'page-home';
+
+// Function to go to home page
+function goToHome() {
+  hideAll();
+  previousPage = 'page-home';
+  document.getElementById('page-home').style.display='block';
+}
+
+// Function to go to courses page (logged out)
+function goToCourses() {
+  hideAll();
+  previousPage = 'page-home';
+  document.getElementById('page-loggedout').style.display='block';
+}
+
+function openLogin(){
+  hideAll();
+  previousPage = 'page-loggedout';
+  document.getElementById('page-login').style.display='block';
+}
+
+function login(){
+  let email = document.getElementById('email').value.trim();
+  let pass = document.getElementById('password').value.trim();
+
+  if(email && pass){
+    hideAll();
+    previousPage = 'page-login';
+    document.getElementById('page-loggedin').style.display='block';
+  } 
+}
+
+// Нова функція для переходу на Logged in Courses Page зі сторінки Login
+function goToLoggedInFromLogin() {
+  hideAll();
+  previousPage = 'page-login';
+  document.getElementById('page-loggedin').style.display='block';
+}
+
+function register(){
+  hideAll();
+  previousPage = 'page-registration';
+  document.getElementById('page-loggedin').style.display='block';
+}
+
+function logout(){
+  hideAll();
+  previousPage = 'page-loggedin';
+  document.getElementById('page-home').style.display='block';
+}
+
+function openRegistration(){
+  hideAll();
+  previousPage = 'page-login';
+  document.getElementById('page-registration').style.display='block';
+}
+
+function toggleRegistrationButton(){
+  const checkbox = document.getElementById('registrationCheckbox');
+  const loginButton = document.getElementById('loginButton');
+  const registrationButton = document.getElementById('registrationButton');
+  
+  if(checkbox.checked){
+    loginButton.classList.add('hidden');
+    registrationButton.classList.remove('hidden');
+  } else {
+    loginButton.classList.remove('hidden');
+    registrationButton.classList.add('hidden');
+  }
+}
+
+function hideAll(){
+  document.getElementById('page-home').style.display='none';
+  document.getElementById('page-loggedout').style.display='none';
+  document.getElementById('page-login').style.display='none';
+  document.getElementById('page-loggedin').style.display='none';
+  document.getElementById('page-registration').style.display='none';
+  document.getElementById('page-course-details').style.display='none';
+}
+
+// Function to show course details
+function showCourseDetails(courseName) {
+  const courseData = courseDetailsData[courseName];
+  if (!courseData) return;
+  
+  // Update course details page with data
+  document.getElementById('course-detail-title').textContent = courseData.title;
+  document.getElementById('course-detail-description').textContent = courseData.description;
+  document.getElementById('course-detail-id').textContent = courseData.id;
+  document.getElementById('course-detail-duration').textContent = courseData.duration;
+  document.getElementById('course-detail-created').textContent = courseData.created;
+  document.getElementById('course-detail-authors').textContent = courseData.authors;
+  
+  // Hide all pages and show course details
+  hideAll();
+  document.getElementById('page-course-details').style.display = 'block';
+}
+
+// Function to go back from course details page
+function goBackFromCourseDetails() {
+  hideAll();
+  if (previousPage === 'page-home' || previousPage === 'page-loggedout' || previousPage === 'page-loggedin') {
+    document.getElementById(previousPage).style.display = 'block';
+  } else {
+    // Default to home page if previous page is not valid
+    document.getElementById('page-home').style.display = 'block';
+  }
+}
+
+// Function to delete a course
+function deleteCourse(courseId) {
+  const courseElement = document.getElementById(courseId);
+  if (courseElement) {
+    courseElement.remove();
+  }
+}
+
+// Add event listeners to show course buttons
+document.addEventListener('DOMContentLoaded', function() {
+  // Event delegation for show course buttons
+  document.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('show-course-btn')) {
+      const courseName = event.target.getAttribute('data-course');
+      if (courseName) {
+        // Store current page before showing course details
+        if (document.getElementById('page-loggedout').style.display !== 'none') {
+          previousPage = 'page-loggedout';
+        } else if (document.getElementById('page-loggedin').style.display !== 'none') {
+          previousPage = 'page-loggedin';
+        } else if (document.getElementById('page-home').style.display !== 'none') {
+          previousPage = 'page-home';
+        }
+        showCourseDetails(courseName);
+      }
+    }
+  });
+  
+  // Event delegation for delete buttons
+  document.addEventListener('click', function(event) {
+    if (event.target && event.target.classList.contains('delete-btn')) {
+      const courseCard = event.target.closest('.course-card-doc');
+      if (courseCard) {
+        courseCard.remove();
+      }
+    }
+  });
+  
+  // Show home page by default
+  hideAll();
+  document.getElementById('page-home').style.display='block';
+});
+</script>
+
+</body>
+</html>
