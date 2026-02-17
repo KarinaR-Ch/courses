@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courses App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= HOME PAGE ================= -->
+<div id="page-home">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png" alt="Logo">
+    <span>Courses</span>
+  </div>
+
+  <div class="header-right">
+    <button onclick="goToCourses()">Start Learning</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 class="title">Learn Programming Easily</h1>
+  <p class="subtitle">
+    Access curated courses, improve your skills, and build confidence in modern technologies.
+    Clear structure, practical examples, and learning without chaos.
+  </p>
+  <button class="start-btn" onclick="goToCourses()">Start Learning</button>
+</section>
+
+<section class="features">
+  <div class="feature-card">
+    <h3>Structured Courses</h3>
+    <p>
+      Clean layout with consistent format, so you can learn step by step and see real progress.
+    </p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Professional Materials</h3>
+    <p>
+      Content prepared by experts with real hands-on experience in international companies.
+    </p>
+  </div>
+
+  <div class="feature-card">
+    <h3>Smart Course Management</h3>
+    <p>
+      Add, edit, and manage courses without spreadsheets and endless chats. Everything in one place.
+    </p>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2025 Courses App. Improve yourself every day.
+</footer>
+</div>
+
+<!-- ================= LOGGED OUT PAGE ================= -->
+<div id="page-loggedout" class="hidden">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png">
+    <span>Courses</span>
+  </div>
+  <div class="header-right">
+    <button onclick="openLogin()">Login</button>
+  </div>
+</header>
+
+<section class="wrapper">
+  <div class="search-bar">
+    <input placeholder="Input text">
+    <button class="btn">Search</button>
+  </div>
+
+  <div class="course-card">
+    <div class="course-left">
+      <h3>Angular</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </div>
+    <div class="course-right">
+      <div><strong>Authors:</strong> Dave Haisenberg, Tony Ja</div>
+      <div><strong>Duration:</strong>2:30</div>
+      <div><strong>Created:</strong>20.03.2012</div>
+      <button class="btn show-course-btn" data-course="Angular">Show Course</button>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-left">
+      <h3>React</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </div>
+    <div class="course-right">
+      <div><strong>Authors:</strong> Dave Simonds, Valentina Lary</div>
+      <div><strong>Duration:</strong>1:00</div>
+      <div><strong>Created:</strong>14.08.2017</div>
+      <button class="btn show-course-btn" data-course="React">Show Course</button>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-left">
+      <h3>ASP .NET</h3>
+      <p>Lorem Ipsum is simply dummy text of the printing...</p>
+    </div>
+    <div class="course-right">
+      <div><strong>Authors:</strong> Sam Smith, Tony Robbins</div>
+      <div><strong>Duration:</strong>3:30</div>
+      <div><strong>Created:</strong>01.06.2022</div>
+      <button class="btn show-course-btn" data-course="ASP .NET">Show Course</button>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ================= LOGIN PAGE ================= -->
+<div id="page-login" class="hidden">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png">
+    <span>Courses</span>
+  </div>
+</header>
+
+<div class="login-container">
+  <h2>Login</h2>
+
+  <div class="login-label">Email</div>
+  <input id="email" type="email" class="login-input" placeholder="Input text">
+
+  <div class="login-label">Password</div>
+  <input id="password" type="password" class="login-input" placeholder="Input text">
+
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px;">
+    <input type="checkbox" id="registrationCheckbox" onchange="toggleRegistrationButton()">
+    <label for="registrationCheckbox">Registration</label>
+  </div>
+
+  <button class="btn" id="loginButton" onclick="goToLoggedInFromLogin()">LOGIN</button>
+  <button class="btn hidden" id="registrationButton" onclick="openRegistration()">Registration</button>
+
+  <div class="login-bottom">
+    If you don't have an account you may<br>
+    <b onclick="openRegistration()" style="cursor:pointer;">Registration</b>
+  </div>
+</div>
+</div>
+
+<!-- ================= REGISTRATION PAGE ================= -->
+<div id="page-registration" class="hidden">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png">
+    <span>Courses</span>
+  </div>
+</header>
+
+<div class="login-container">
+  <h2>Registration</h2>
+
+  <div class="login-label">Name</div>
+  <input type="text" class="login-input" placeholder="Input text">
+
+  <div class="login-label">Email</div>
+  <input type="email" class="login-input" placeholder="Input text">
+
+  <div class="login-label">Password</div>
+  <input type="password" class="login-input" placeholder="Input text">
+
+  <button class="btn" onclick="register()">LOGIN</button>
+
+  <div class="login-bottom">
+    If you have an account you may <b onclick="openLogin()" style="cursor:pointer;">Login</b>
+  </div>
+</div>
+</div>
+
+<!-- ================= LOGGED IN PAGE ================= -->
+<div id="page-loggedin" class="hidden">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png">
+    <span>Courses</span>
+  </div>
+  <div class="header-right">
+    <span>Harry Potter</span>
+    <button onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<section class="courses">
+  <!-- Search bar -->
+  <div class="search-bar-doc">
+    <input type="text" placeholder="Input text" class="doc" />
+    <button class="btn">Search</button>
+    <button class="btn">Add new</button>
+  </div>
+  <!-- List of courses -->
+  <div class="courses-list" id="coursesContainer">
+    <!-- Course 1 -->
+    <div class="course-card-doc" id="course1">
+      <div class="course-card-content">
+        <div class="course-main-info">
+          <h2 class="course-title">Angular</h2>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since the
+            1500s...
+          </p>
+        </div>
+        <div class="course-details">
+          <div class="detail-item"><strong>Authors:</strong> <span class="authors-list">Dave Haisenberg, Tony Ja</span></div>
+          <div class="detail-item"><strong>Duration:</strong> 2:30 hours</div>
+          <div class="detail-item"><strong>Created:</strong> 20.03.2012</div>
+          <div class="detail-item">
+            <button class="btn show-course-btn" data-course="Angular">Show course</button>
+            <button class="btn">✏️</button>
+            <button class="btn delete-btn" onclick="deleteCourse('course1')">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Course 2 -->
+    <div class="course-card-doc" id="course2">
+      <div class="course-card-content">
+        <div class="course-main-info">
+          <h2 class="course-title">React</h2>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since the
+            1500s...
+          </p>
+        </div>
+        <div class="course-details">
+          <div class="detail-item"><strong>Authors:</strong> <span class="authors-list">Dave Simonds, Valentina Lary</span></div>
+          <div class="detail-item"><strong>Duration:</strong> 1:00 hours</div>
+          <div class="detail-item"><strong>Created:</strong> 14.08.2017</div>
+          <div class="detail-item">
+            <button class="btn show-course-btn" data-course="React">Show course</button>
+            <button class="btn">✏️</button>
+            <button class="btn delete-btn" onclick="deleteCourse('course2')">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Course 3 -->
+    <div class="course-card-doc" id="course3">
+      <div class="course-card-content">
+        <div class="course-main-info">
+          <h2 class="course-title">ASP .NET</h2>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and
+            typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since the
+            1500s...
+          </p>
+        </div>
+        <div class="course-details">
+          <div class="detail-item"><strong>Authors:</strong> <span class="authors-list">Sam Smith, Tony Robbins</span></div>
+          <div class="detail-item"><strong>Duration:</strong> 3:30 hours</div>
+          <div class="detail-item"><strong>Created:</strong> 01.06.2022</div>
+          <div class="detail-item">
+            <button class="btn show-course-btn" data-course="ASP .NET">Show course</button>
+            <button class="btn">✏️</button>
+            <button class="btn delete-btn" onclick="deleteCourse('course3')">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ================= COURSE DETAILS PAGE ================= -->
+<div id="page-course-details" class="hidden course-details-page">
+<header class="header">
+  <div class="header-left">
+    <img src="https://raw.githubusercontent.com/KarinaR-Ch/courses/refs/heads/main/Vector%20(1).png" alt="Logo">
+    <span>Courses</span>
+  </div>
+
+  <div class="header-right">
+    <span>Harry Potter</span>
+    <button class="logout-btn" onclick="logout()">LOGOUT</button>
+  </div>
+</header>
+
+<!-- CONTENT -->
+<div class="wrapper">
+  <h1 class="title" id="course-detail-title">JavaScript</h1>
+
+  <div class="panel">
+    <!-- LEFT -->
+    <div class="description-block">
+      <h3>Description:</h3>
+      <p id="course-detail-description">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+        Aldus PageMaker including versions of Lorem Ipsum.
+      </p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="info-block">
+      <div><strong>ID:</strong> <span id="course-detail-id">231j3j-b34g5-b345m</span></div>
+      <div><strong>Duration:</strong> <span id="course-detail-duration">23:35 hours</span></div>
+      <div><strong>Created:</strong> <span id="course-detail-created">01.01.2023</span></div>
+      <div><strong>Authors:</strong> <span id="course-detail-authors">Anna Sidorenko, Valentina Larina</span></div>
+    </div>
+  </div>
+
+  <button class="back-btn" onclick="goBackFromCourseDetails()">BACK</button>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
