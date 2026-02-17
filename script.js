@@ -60,7 +60,6 @@ function login(){
   } 
 }
 
-// Нова функція для переходу на Logged in Courses Page зі сторінки Login
 function goToLoggedInFromLogin() {
   hideAll();
   previousPage = 'page-login';
