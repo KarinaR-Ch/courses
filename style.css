@@ -1,0 +1,431 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+/* ================= HOME PAGE STYLES ================= */
+#page-home {
+  background: #f7f7f7;
+  color: #222;
+}
+
+#page-home .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+#page-home .header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+#page-home .header-left img {
+  width: 72px;
+}
+
+#page-home .header-right button {
+  padding: 8px 24px;
+  border: none;
+  background: #007baf;
+  color: white;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+#page-home .header-right button:hover {
+  background: #005b82;
+}
+
+#page-home .hero {
+  max-width: 1100px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+#page-home .title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+#page-home .subtitle {
+  font-size: 19px;
+  color: #444;
+  line-height: 1.45;
+  max-width: 620px;
+  margin: 0 auto 36px;
+}
+
+#page-home .start-btn {
+  padding: 14px 48px;
+  font-size: 18px;
+  border: none;
+  background: #007baf;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#page-home .start-btn:hover {
+  background: #005b82;
+}
+
+#page-home .features {
+  max-width: 1100px;
+  margin: 100px auto 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+#page-home .feature-card {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#page-home .feature-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+#page-home .feature-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.4;
+}
+
+#page-home .footer {
+  text-align: center;
+  padding: 35px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* ================= ORIGINAL APP STYLES ================= */
+body{background:#f5f5f5;}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 40px;
+  background:white;
+  border-bottom:1px solid #ddd;
+}
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:22px;
+  font-weight:600;
+}
+.header-left img{width:72px;}
+.header-right button{
+  padding:8px 24px;
+  border:none;
+  background:#007baf;
+  color:white;
+  font-size:16px;
+  border-radius:4px;
+  cursor:pointer;
+}
+.header-right button:hover{background:#005b80;}
+
+.wrapper{
+  max-width:1100px;
+  margin:30px auto;
+}
+.search-bar{
+  display:flex;
+  gap:12px;
+  margin-bottom:24px;
+}
+input{
+  flex:1;
+  padding:12px 14px;
+  border:1px solid #ccc;
+  border-radius:4px;
+}
+.btn{
+  padding:12px 26px;
+  background:#007baf;
+  color:white;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+}
+.btn:hover{background:#005b80;}
+
+.course-card{
+  background:white;
+  border:1px solid #dcdcdc;
+  border-radius:8px;
+  padding:25px;
+  margin-bottom:20px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+.course-left{flex:2;}
+.course-left h3{font-size:22px;margin-bottom:12px;}
+.course-left p{color:#444;font-size:15px;line-height:1.4;}
+.course-right{flex:1;display:flex;flex-direction:column;gap:8px;font-size:15px;}
+.course-right button{margin-top:12px;align-self:start;}
+
+/* Login page */
+.login-container{
+  max-width:420px;
+  margin:80px auto;
+  background:white;
+  padding:40px;
+  border:1px solid #e0e0e0;
+  border-radius:6px;
+  text-align:center;
+}
+.login-container h2{
+  margin-bottom:25px;
+  font-size:28px;
+}
+.login-label{
+  text-align:left;
+  margin-bottom:6px;
+  font-size:14px;
+  font-weight:600;
+}
+.login-input{
+  width:100%;
+  padding:10px;
+  border:1px solid #ccc;
+  border-radius:4px;
+  margin-bottom:18px;
+}
+.login-bottom{
+  margin-top:12px;
+  font-size:14px;
+}
+.hidden{display:none;}
+
+/* CSS from document for Logged in Courses Page */
+.courses {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.courses-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.course-card-doc {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: white;
+}
+
+.course-card-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.course-main-info {
+  flex: 2;
+}
+
+.course-details {
+  flex: 1;
+  min-width: 200px;
+}
+
+.course-title {
+  margin-bottom: 10px;
+}
+
+.authors-list {
+  display: inline-block;
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty-course-list {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.course-info {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.course-info-content {
+  display: flex;
+  gap: 40px;
+  margin: 20px 0;
+}
+
+.detail-item {
+  margin-bottom: 15px;
+}
+
+.search-bar-doc {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input.doc {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex: 1;
+}
+
+/* CSS from document for Course Details Page */
+.course-details-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.course-details-page body {
+  background: #f5f5f5;
+}
+
+/* Header */
+.course-details-page .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.course-details-page .header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.course-details-page .header-left img {
+  width: 72px;
+}
+
+.course-details-page .header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+}
+
+.course-details-page .logout-btn {
+  padding: 8px 24px;
+  border: none;
+  background: #007baf;
+  color: white;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.course-details-page .logout-btn:hover {
+  background: #005b80;
+}
+
+/* Page container */
+.course-details-page .wrapper {
+  max-width: 1100px;
+  margin: 40px auto;
+}
+
+.course-details-page .title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+/* Content Panel */
+.course-details-page .panel {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 35px;
+  display: flex;
+  gap: 40px;
+}
+
+.course-details-page .description-block {
+  flex: 2;
+}
+
+.course-details-page .description-block h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.course-details-page .description-block p {
+  font-size: 15px;
+  line-height: 1.45;
+  color: #444;
+}
+
+.course-details-page .info-block {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 15px;
+}
+
+.course-details-page .info-block div strong {
+  display: inline-block;
+  width: 80px;
+}
+
+.course-details-page .back-btn {
+  margin: 35px auto 0;
+  display: block;
+  width: 150px;
+  padding: 12px;
+  font-size: 15px;
+  border: none;
+  background: #007baf;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.course-details-page .back-btn:hover {
+  background: #005b80;
+}
